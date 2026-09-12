@@ -1,0 +1,2238 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- =====================================================
+     CONFIGURAÇÃO — ALTERE SOMENTE AQUI
+===================================================== -->
+
+<script>
+
+const CONFIG = {
+
+    /* Nome que aparecerá no site */
+    empresa: "Emprega Brasil",
+
+    /* Gmail/e-mail que receberá os currículos */
+    email: "comingrh.online@gmail.com",
+
+    /* WhatsApp do atendimento/RH */
+    whatsapp: "08003421764",
+
+    /* Cargo da vaga */
+    cargo: "Porteiro",
+
+    /* Quantidade de vagas */
+    vagas: "26",
+
+    /* Prazo */
+    prazo: "Até o dia 19 ou até as vagas serem preenchidas",
+
+    /*
+       COLE AQUI O LINK DIRETO DA SUA FOTO/LOGO.
+
+       Exemplo:
+       "https://seusite.com/imagem.jpg"
+
+       Se não quiser foto, deixe:
+       ""
+    */
+    fotoPerfil: "data:image/webp;base64,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"
+
+};
+
+</script>
+
+
+<title>Oportunidade de Emprego | Porteiro</title>
+
+
+<style>
+
+:root{
+    --green:#08783f;
+    --green-dark:#04572d;
+    --green-light:#eaf7f0;
+
+    --blue:#0757a5;
+    --blue-dark:#06447f;
+    --blue-light:#eaf3ff;
+
+    --yellow:#f5c400;
+    --yellow-dark:#dca900;
+
+    --gray:#667078;
+    --gray-light:#f3f5f6;
+    --gray-border:#dfe4e7;
+
+    --dark:#18252b;
+    --white:#ffffff;
+
+    --shadow:0 12px 35px rgba(20,40,30,.08);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:var(--gray-light);
+    color:var(--dark);
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    background:#fff;
+    border-bottom:1px solid var(--gray-border);
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    box-shadow:0 4px 20px rgba(0,0,0,.06);
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+
+    padding:12px 20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    text-decoration:none;
+    color:var(--dark);
+}
+
+.logo-symbol{
+    width:52px;
+    height:52px;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #08783f 0%,
+            #08783f 50%,
+            #0757a5 50%,
+            #0757a5 100%
+        );
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 6px 18px rgba(8,120,63,.24);
+}
+
+.logo-photo{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:none;
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:20;
+}
+
+
+/* Logo padrão */
+
+.logo-symbol .diamond{
+    position:absolute;
+
+    width:30px;
+    height:30px;
+
+    background:var(--yellow);
+
+    transform:rotate(45deg);
+}
+
+.logo-symbol .circle{
+    position:absolute;
+
+    width:17px;
+    height:17px;
+
+    border-radius:50%;
+
+    background:var(--blue);
+
+    z-index:2;
+}
+
+.briefcase{
+    position:absolute;
+
+    width:23px;
+    height:15px;
+
+    border-radius:3px;
+
+    background:#fff;
+
+    z-index:5;
+}
+
+.briefcase:before{
+    content:"";
+
+    position:absolute;
+
+    width:9px;
+    height:5px;
+
+    left:5px;
+    top:-6px;
+
+    border:2px solid #fff;
+    border-bottom:0;
+
+    border-radius:4px 4px 0 0;
+}
+
+.briefcase:after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:6px;
+
+    width:23px;
+    height:3px;
+
+    background:var(--yellow);
+}
+
+.logo-name{
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:-.6px;
+}
+
+.logo-name .green{
+    color:var(--green);
+}
+
+.logo-name .blue{
+    color:var(--blue);
+}
+
+.logo-sub{
+    display:block;
+
+    margin-top:5px;
+
+    color:var(--gray);
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+}
+
+.nav-links{
+    display:flex;
+    gap:27px;
+}
+
+.nav-links a{
+    text-decoration:none;
+
+    color:#344148;
+
+    font-size:14px;
+    font-weight:700;
+}
+
+.nav-links a:hover{
+    color:var(--green);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    min-height:600px;
+
+    display:flex;
+    align-items:center;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3,65,33,.97),
+            rgba(3,65,33,.88),
+            rgba(3,65,33,.58)
+        ),
+        url("https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=2000&q=90")
+        center/cover no-repeat;
+}
+
+.hero:after{
+    content:"OPORTUNIDADE";
+
+    position:absolute;
+
+    right:-30px;
+    bottom:-50px;
+
+    font-size:100px;
+    font-weight:900;
+
+    color:rgba(255,255,255,.05);
+}
+
+.hero-content{
+    max-width:1200px;
+    width:100%;
+
+    margin:auto;
+
+    padding:80px 20px;
+
+    display:grid;
+
+    grid-template-columns:1.25fr .75fr;
+
+    gap:60px;
+
+    align-items:center;
+
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:9px 15px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    font-size:11px;
+    font-weight:900;
+
+    letter-spacing:1px;
+}
+
+.badge span{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--yellow);
+}
+
+.hero h1{
+    max-width:720px;
+
+    margin:20px 0;
+
+    font-size:56px;
+    line-height:1.04;
+
+    letter-spacing:-2px;
+}
+
+.hero h1 strong{
+    color:var(--yellow);
+}
+
+.hero p{
+    max-width:650px;
+
+    color:#e8f2ed;
+
+    font-size:17px;
+
+    line-height:1.75;
+}
+
+.buttons{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:28px;
+}
+
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:50px;
+
+    padding:14px 23px;
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    border:0;
+
+    cursor:pointer;
+
+    font-size:14px;
+    font-weight:900;
+
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-yellow{
+    background:var(--yellow);
+    color:#17371f;
+}
+
+.btn-white{
+    background:white;
+    color:var(--green-dark);
+}
+
+.btn-green{
+    background:var(--green);
+    color:white;
+}
+
+
+/* =====================================================
+   CARD HERO
+===================================================== */
+
+.hero-card{
+    background:white;
+
+    color:var(--dark);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 25px 55px rgba(0,0,0,.23);
+
+    border-top:5px solid var(--yellow);
+}
+
+.hero-card small{
+    color:var(--green);
+
+    font-size:11px;
+    font-weight:900;
+
+    letter-spacing:1px;
+}
+
+.hero-card h2{
+    margin:11px 0 22px;
+
+    font-size:27px;
+}
+
+.hero-info{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:15px 0;
+
+    border-bottom:1px solid var(--gray-border);
+
+    font-size:14px;
+}
+
+.hero-info:last-child{
+    border-bottom:0;
+}
+
+.hero-info span{
+    color:var(--gray);
+}
+
+.hero-info strong{
+    color:var(--green-dark);
+}
+
+
+/* =====================================================
+   DESTAQUES
+===================================================== */
+
+.highlights{
+    background:white;
+
+    border-bottom:1px solid var(--gray-border);
+
+    box-shadow:0 4px 15px rgba(0,0,0,.04);
+}
+
+.highlight-grid{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:0 20px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+}
+
+.highlight{
+    text-align:center;
+
+    padding:23px 12px;
+
+    border-right:1px solid var(--gray-border);
+}
+
+.highlight:last-child{
+    border-right:0;
+}
+
+.highlight strong{
+    display:block;
+
+    color:var(--green);
+
+    font-size:22px;
+}
+
+.highlight:first-child strong{
+    color:var(--yellow-dark);
+}
+
+.highlight span{
+    display:block;
+
+    margin-top:5px;
+
+    color:var(--gray);
+
+    font-size:11px;
+    font-weight:700;
+}
+
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+
+.section{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:72px 20px;
+}
+
+.section-title{
+    margin-bottom:38px;
+}
+
+.center{
+    text-align:center;
+}
+
+.section-title h2{
+    margin:0 0 10px;
+
+    font-size:32px;
+
+    letter-spacing:-.7px;
+}
+
+.section-title p{
+    margin:0;
+
+    color:var(--gray);
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.card{
+    background:white;
+
+    border:1px solid var(--gray-border);
+
+    border-radius:16px;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+}
+
+.icon{
+    width:50px;
+    height:50px;
+
+    border-radius:13px;
+
+    background:var(--green-light);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+
+    margin-bottom:18px;
+}
+
+.card:nth-child(2) .icon{
+    background:var(--blue-light);
+}
+
+.card:nth-child(3) .icon{
+    background:#fff8dd;
+}
+
+.card h3{
+    margin:0 0 10px;
+
+    font-size:18px;
+}
+
+.card p{
+    margin:0;
+
+    color:var(--gray);
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   DETALHES
+===================================================== */
+
+.job{
+    background:white;
+
+    border:1px solid var(--gray-border);
+
+    border-radius:18px;
+
+    padding:32px;
+
+    box-shadow:var(--shadow);
+}
+
+.job-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:35px;
+}
+
+.heading{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:20px;
+}
+
+.heading-bar{
+    width:5px;
+    height:28px;
+
+    border-radius:4px;
+
+    background:var(--green);
+}
+
+.heading h3{
+    margin:0;
+}
+
+.list{
+    list-style:none;
+
+    padding:0;
+    margin:0;
+}
+
+.list li{
+    background:#f8fafb;
+
+    padding:14px 16px;
+
+    margin-bottom:8px;
+
+    border-radius:9px;
+
+    font-size:14px;
+}
+
+.list strong{
+    color:var(--green-dark);
+}
+
+
+/* =====================================================
+   BENEFÍCIOS
+===================================================== */
+
+.benefits{
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:12px;
+}
+
+.benefit{
+    background:white;
+
+    border:1px solid var(--gray-border);
+
+    border-radius:13px;
+
+    padding:22px 10px;
+
+    text-align:center;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.035);
+
+    color:var(--gray);
+
+    font-size:12px;
+}
+
+.benefit strong{
+    display:block;
+
+    margin-bottom:8px;
+
+    color:var(--green);
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   AVISO
+===================================================== */
+
+.notice{
+    margin-top:25px;
+
+    padding:20px;
+
+    background:#fff9df;
+
+    border:1px solid #f0d873;
+
+    border-left:5px solid var(--yellow-dark);
+
+    border-radius:10px;
+
+    color:#5e511e;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   FORMULÁRIO
+===================================================== */
+
+.form-area{
+    background:
+        linear-gradient(
+            135deg,
+            #edf6f1,
+            #f3f5f6
+        );
+
+    border-top:1px solid var(--gray-border);
+}
+
+.form-box{
+    max-width:880px;
+
+    margin:auto;
+
+    background:white;
+
+    border:1px solid var(--gray-border);
+
+    border-radius:20px;
+
+    padding:38px;
+
+    box-shadow:0 18px 45px rgba(20,40,30,.09);
+}
+
+.form-header{
+    margin-bottom:25px;
+
+    padding-bottom:22px;
+
+    border-bottom:1px solid var(--gray-border);
+}
+
+.form-header h3{
+    margin:0 0 8px;
+
+    font-size:23px;
+}
+
+.form-header p{
+    margin:0;
+
+    color:var(--gray);
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+.form-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+}
+
+.field{
+    display:flex;
+
+    flex-direction:column;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+label{
+    margin-bottom:8px;
+
+    font-size:13px;
+    font-weight:850;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #d6dde1;
+
+    border-radius:9px;
+
+    background:white;
+
+    color:var(--dark);
+
+    font-family:inherit;
+
+    font-size:15px;
+
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--green);
+
+    box-shadow:
+        0 0 0 3px rgba(8,120,63,.08);
+}
+
+textarea{
+    min-height:115px;
+
+    resize:vertical;
+}
+
+.file{
+    padding:20px;
+
+    background:#f7f9fa;
+
+    border:1px dashed #bdc8cd;
+
+    border-radius:10px;
+}
+
+.form-button{
+    margin-top:25px;
+}
+
+.form-note{
+    margin-top:13px;
+
+    color:var(--gray);
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   PRAZO
+===================================================== */
+
+.deadline{
+    margin-top:20px;
+
+    padding:22px;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0757a5,
+            #08783f
+        );
+
+    color:white;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(7,87,165,.16);
+}
+
+.deadline strong{
+    display:block;
+
+    color:var(--yellow);
+
+    font-size:25px;
+
+    margin-bottom:6px;
+}
+
+.deadline span{
+    font-size:13px;
+
+    color:#edf7f1;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    background:#092f20;
+
+    color:white;
+
+    padding:45px 20px;
+
+    text-align:center;
+}
+
+.footer-logo{
+    font-size:21px;
+
+    font-weight:900;
+}
+
+.footer-company{
+    color:var(--yellow);
+}
+
+footer p{
+    max-width:680px;
+
+    margin:12px auto 0;
+
+    color:#b9c9c1;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media(max-width:900px){
+
+    .hero-content{
+        grid-template-columns:1fr;
+    }
+
+    .hero-card{
+        max-width:650px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .job-grid{
+        grid-template-columns:1fr;
+    }
+
+    .benefits{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero h1{
+        font-size:44px;
+    }
+}
+
+@media(max-width:600px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero-content{
+        padding:60px 20px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .highlight-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .highlight{
+        border-bottom:1px solid var(--gray-border);
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .form-box{
+        padding:24px 20px;
+    }
+
+    .benefits{
+        grid-template-columns:1fr;
+    }
+
+    .section{
+        padding:52px 20px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="nav">
+
+<a href="#" class="logo">
+
+<div class="logo-symbol">
+
+<img
+    id="logoPhoto"
+    class="logo-photo"
+    alt="Logo da empresa"
+>
+
+<div class="diamond"></div>
+
+<div class="circle"></div>
+
+<div class="briefcase"></div>
+
+</div>
+
+
+<div>
+
+<div class="logo-name">
+
+<span id="logoEmpresa">
+    Sua Empresa
+</span>
+
+</div>
+
+<span class="logo-sub">
+    EMPREGOS • OPORTUNIDADES • BRASIL
+</span>
+
+</div>
+
+</a>
+
+
+<nav class="nav-links">
+
+<a href="#vaga">
+    Vaga
+</a>
+
+<a href="#beneficios">
+    Benefícios
+</a>
+
+<a href="#curriculo">
+    Currículo
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+
+<div>
+
+<span class="badge">
+
+<span></span>
+
+PROCESSO SELETIVO ABERTO
+
+</span>
+
+
+<h1>
+
+Oportunidade para
+<span id="heroCargo">
+    <strong>Porteiro</strong>
+</span>
+
+</h1>
+
+
+<p>
+
+Estamos recebendo currículos para a oportunidade
+de <strong id="textoCargo">Porteiro</strong>.
+
+São <strong id="textoVagas">26 vagas disponíveis</strong>,
+com contratações previstas até o dia 19 ou enquanto
+houver vagas disponíveis.
+
+</p>
+
+
+<div class="buttons">
+
+<a
+href="#curriculo"
+class="btn btn-yellow">
+
+Enviar currículo
+
+</a>
+
+
+<a
+href="#vaga"
+class="btn btn-white">
+
+Ver detalhes da vaga
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<small>
+    OPORTUNIDADE PROFISSIONAL
+</small>
+
+
+<h2 id="cardCargo">
+    Porteiro
+</h2>
+
+
+<div class="hero-info">
+
+<span>
+    Vagas disponíveis
+</span>
+
+<strong id="cardVagas">
+    26 vagas
+</strong>
+
+</div>
+
+
+<div class="hero-info">
+
+<span>
+    Contratação
+</span>
+
+<strong>
+    Até dia 19
+</strong>
+
+</div>
+
+
+<div class="hero-info">
+
+<span>
+    Regime
+</span>
+
+<strong>
+    CLT
+</strong>
+
+</div>
+
+
+<div class="hero-info">
+
+<span>
+    Prazo
+</span>
+
+<strong>
+    Enquanto houver vagas
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DESTAQUES
+===================================================== -->
+
+<section class="highlights">
+
+<div class="highlight-grid">
+
+
+<div class="highlight">
+
+<strong id="destaqueVagas">
+    26
+</strong>
+
+<span>
+    VAGAS DISPONÍVEIS
+</span>
+
+</div>
+
+
+<div class="highlight">
+
+<strong>
+    CLT
+</strong>
+
+<span>
+    REGIME DE CONTRATAÇÃO
+</span>
+
+</div>
+
+
+<div class="highlight">
+
+<strong>
+    DIA 19
+</strong>
+
+<span>
+    PRAZO PREVISTO
+</span>
+
+</div>
+
+
+<div class="highlight">
+
+<strong>
+    GRATUITO
+</strong>
+
+<span>
+    ENVIO DE CURRÍCULO
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PERFIL
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title center">
+
+<h2>
+    O que buscamos
+</h2>
+
+<p>
+    Procuramos profissionais comprometidos
+    com uma rotina de trabalho responsável.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">
+    🛡️
+</div>
+
+<h3>
+    Responsabilidade
+</h3>
+
+<p>
+    Atenção às rotinas de portaria,
+    controle de acesso e cumprimento
+    dos procedimentos.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+    👥
+</div>
+
+<h3>
+    Bom atendimento
+</h3>
+
+<p>
+    Orientação de visitantes,
+    colaboradores e prestadores
+    de serviço.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+    📋
+</div>
+
+<h3>
+    Organização
+</h3>
+
+<p>
+    Registro de informações,
+    recebimento de correspondências
+    e organização da rotina.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DETALHES DA VAGA
+===================================================== -->
+
+<section
+class="section"
+id="vaga">
+
+<div class="section-title">
+
+<h2>
+    Detalhes da oportunidade
+</h2>
+
+<p>
+    Confira as principais informações
+    antes de enviar seu currículo.
+</p>
+
+</div>
+
+
+<div class="job">
+
+<div class="job-grid">
+
+
+<div>
+
+<div class="heading">
+
+<div class="heading-bar"></div>
+
+<h3>
+    Informações
+</h3>
+
+</div>
+
+
+<ul class="list">
+
+<li>
+<strong>Cargo:</strong>
+<span id="cargoDetalhes">
+    Porteiro
+</span>
+</li>
+
+<li>
+<strong>Vagas:</strong>
+<span id="vagasDetalhes">
+    26 oportunidades
+</span>
+</li>
+
+<li>
+<strong>Regime:</strong>
+CLT — Tempo Integral
+</li>
+
+<li>
+<strong>Processo:</strong>
+Análise de currículo e seleção
+</li>
+
+<li>
+<strong>Prazo:</strong>
+Contratações até o dia 19 ou até o preenchimento das vagas
+</li>
+
+<li>
+<strong>Local:</strong>
+Conforme disponibilidade da oportunidade
+</li>
+
+</ul>
+
+</div>
+
+
+<div>
+
+<div class="heading">
+
+<div class="heading-bar"></div>
+
+<h3>
+    Principais atividades
+</h3>
+
+</div>
+
+
+<ul class="list">
+
+<li>
+Controle de entrada e saída de pessoas.
+</li>
+
+<li>
+Identificação e orientação de visitantes.
+</li>
+
+<li>
+Controle de acesso de veículos.
+</li>
+
+<li>
+Recebimento de correspondências.
+</li>
+
+<li>
+Registro de movimentações.
+</li>
+
+<li>
+Comunicação de ocorrências.
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="deadline">
+
+<strong>
+    26 VAGAS DISPONÍVEIS
+</strong>
+
+<span>
+    Contratações previstas até o dia 19
+    ou enquanto houver vagas disponíveis.
+</span>
+
+</div>
+
+
+<div class="notice">
+
+<strong>⚠️ Importante:</strong>
+
+O envio do currículo é gratuito e representa
+apenas manifestação de interesse na oportunidade.
+O envio do currículo não garante contratação.
+A seleção depende da análise do perfil,
+disponibilidade das vagas e das etapas do
+processo seletivo.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     BENEFÍCIOS
+===================================================== -->
+
+<section
+class="section"
+id="beneficios">
+
+<div class="section-title center">
+
+<h2>
+    Condições e benefícios
+</h2>
+
+<p>
+    Informações que podem variar conforme
+    a empresa e a unidade contratante.
+</p>
+
+</div>
+
+
+<div class="benefits">
+
+
+<div class="benefit">
+
+<strong>
+    Salário
+</strong>
+
+Conforme oferta da vaga
+
+</div>
+
+
+<div class="benefit">
+
+<strong>
+    Vale-Alimentação
+</strong>
+
+Conforme política da empresa
+
+</div>
+
+
+<div class="benefit">
+
+<strong>
+    Vale-Refeição
+</strong>
+
+Conforme política da empresa
+
+</div>
+
+
+<div class="benefit">
+
+<strong>
+    Vale-Transporte
+</strong>
+
+Conforme necessidade
+
+</div>
+
+
+<div class="benefit">
+
+<strong>
+    Benefícios
+</strong>
+
+Conforme contratação
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FORMULÁRIO
+===================================================== -->
+
+<section
+class="section form-area"
+id="curriculo">
+
+<div class="section-title center">
+
+<h2>
+    Envie seu currículo
+</h2>
+
+<p>
+    Preencha seus dados e anexe seu currículo
+    para participar do processo seletivo.
+</p>
+
+</div>
+
+
+<div class="form-box">
+
+
+<div class="form-header">
+
+<h3>
+
+Candidatura para
+<span id="formCargo">
+    Porteiro
+</span>
+
+</h3>
+
+<p>
+
+Todos os campos marcados com * são obrigatórios.
+O envio do currículo é gratuito.
+
+</p>
+
+</div>
+
+
+<form
+id="curriculoForm"
+method="POST"
+enctype="multipart/form-data"
+>
+
+
+<input
+type="hidden"
+name="_subject"
+id="emailSubject"
+value="Novo currículo - Vaga de Porteiro"
+>
+
+
+<input
+type="hidden"
+name="_template"
+value="table"
+>
+
+
+<input
+type="hidden"
+name="_captcha"
+value="true"
+>
+
+
+<div class="form-grid">
+
+
+<div class="field full">
+
+<label>
+    Nome completo *
+</label>
+
+<input
+type="text"
+name="Nome completo"
+placeholder="Digite seu nome completo"
+required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+    Idade *
+</label>
+
+<input
+type="number"
+name="Idade"
+min="18"
+placeholder="Sua idade"
+required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+    WhatsApp *
+</label>
+
+<input
+type="tel"
+name="WhatsApp"
+placeholder="(00) 00000-0000"
+required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+    E-mail *
+</label>
+
+<input
+type="email"
+name="E-mail"
+placeholder="seuemail@email.com"
+required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+    Cidade *
+</label>
+
+<input
+type="text"
+name="Cidade"
+placeholder="Sua cidade"
+required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+    Escolaridade *
+</label>
+
+<select
+name="Escolaridade"
+required>
+
+<option value="">
+Selecione
+</option>
+
+<option>
+Ensino Fundamental
+</option>
+
+<option>
+Ensino Médio
+</option>
+
+<option>
+Ensino Superior
+</option>
+
+<option>
+Superior em andamento
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+    Experiência profissional *
+</label>
+
+<select
+name="Experiência"
+required>
+
+<option value="">
+Selecione
+</option>
+
+<option>
+Sem experiência
+</option>
+
+<option>
+Até 6 meses
+</option>
+
+<option>
+De 6 meses a 1 ano
+</option>
+
+<option>
+Mais de 1 ano
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field full">
+
+<label>
+    Currículo *
+</label>
+
+<div class="file">
+
+<input
+type="file"
+name="attachment"
+accept=".pdf,.doc,.docx"
+required
+>
+
+<br><br>
+
+<small>
+PDF, DOC ou DOCX.
+</small>
+
+</div>
+
+</div>
+
+
+<div class="field full">
+
+<label>
+    Informações adicionais
+</label>
+
+<textarea
+name="Informações adicionais"
+placeholder="Informe experiências, disponibilidade ou outras informações relevantes."
+></textarea>
+
+</div>
+
+
+</div>
+
+
+<div class="form-button">
+
+<button
+type="submit"
+class="btn btn-green">
+
+Enviar currículo
+
+</button>
+
+</div>
+
+
+<div class="form-note">
+
+Seu currículo será encaminhado para o e-mail
+configurado pela empresa responsável pelo processo.
+Nenhum pagamento é necessário para enviar o currículo.
+
+</div>
+
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-logo">
+
+<span
+id="footerEmpresa"
+class="footer-company">
+
+Sua Empresa
+
+</span>
+
+</div>
+
+
+<p>
+Recursos Humanos • Recrutamento e Seleção
+</p>
+
+
+<p>
+
+26 vagas disponíveis.
+Contratações previstas até o dia 19
+ou enquanto houver vagas disponíveis.
+
+</p>
+
+
+<p>
+
+A participação está sujeita à análise do perfil,
+disponibilidade das vagas e demais etapas
+do processo seletivo.
+
+</p>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   NOME DA EMPRESA
+===================================================== */
+
+document.getElementById("logoEmpresa").textContent =
+CONFIG.empresa;
+
+document.getElementById("footerEmpresa").textContent =
+CONFIG.empresa;
+
+
+/* =====================================================
+   CARGO
+===================================================== */
+
+document.getElementById("heroCargo").innerHTML =
+"<strong>" + CONFIG.cargo + "</strong>";
+
+document.getElementById("textoCargo").textContent =
+CONFIG.cargo;
+
+document.getElementById("cardCargo").textContent =
+CONFIG.cargo;
+
+document.getElementById("cargoDetalhes").textContent =
+CONFIG.cargo;
+
+document.getElementById("formCargo").textContent =
+CONFIG.cargo;
+
+
+/* =====================================================
+   VAGAS
+===================================================== */
+
+document.getElementById("textoVagas").textContent =
+CONFIG.vagas + " vagas disponíveis";
+
+document.getElementById("cardVagas").textContent =
+CONFIG.vagas + " vagas";
+
+document.getElementById("destaqueVagas").textContent =
+CONFIG.vagas;
+
+document.getElementById("vagasDetalhes").textContent =
+CONFIG.vagas + " oportunidades";
+
+
+/* =====================================================
+   FOTO / LOGO POR LINK
+===================================================== */
+
+const logoPhoto =
+document.getElementById("logoPhoto");
+
+
+if(
+    CONFIG.fotoPerfil &&
+    CONFIG.fotoPerfil.trim() !== ""
+){
+
+    logoPhoto.src =
+    CONFIG.fotoPerfil;
+
+    logoPhoto.style.display =
+    "block";
+
+}
+
+
+/* =====================================================
+   FORMSUBMIT
+===================================================== */
+
+const formulario =
+document.getElementById("curriculoForm");
+
+
+/*
+   O currículo será enviado para o e-mail
+   que você colocou em CONFIG.email.
+*/
+
+formulario.action =
+"https://formsubmit.co/" + CONFIG.email;
+
+
+/* Assunto do e-mail */
+
+document.getElementById("emailSubject").value =
+"Novo currículo - Vaga de " + CONFIG.cargo;
+
+
+/* =====================================================
+   VALIDAÇÃO DO ARQUIVO
+===================================================== */
+
+formulario.addEventListener(
+"submit",
+function(event){
+
+    const arquivo =
+    document.querySelector(
+        'input[name="attachment"]'
+    );
+
+
+    if(!arquivo.files.length){
+
+        event.preventDefault();
+
+        alert(
+            "Selecione seu currículo antes de enviar."
+        );
+
+        return;
+
+    }
+
+
+    const nomeArquivo =
+    arquivo.files[0].name.toLowerCase();
+
+
+    const extensoesPermitidas =
+    [".pdf",".doc",".docx"];
+
+
+    const permitido =
+    extensoesPermitidas.some(
+        ext => nomeArquivo.endsWith(ext)
+    );
+
+
+    if(!permitido){
+
+        event.preventDefault();
+
+        alert(
+            "Envie seu currículo em PDF, DOC ou DOCX."
+        );
+
+        return;
+
+    }
+
+});
+
+
+</script>
+
+
+</body>
+</html>
+```
